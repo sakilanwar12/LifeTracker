@@ -1,33 +1,62 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import React from "react";
+import tw from "../../src/utils/tailwind";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarActiveTintColor: "#3B82F6",
+        tabBarInactiveTintColor: "gray",
+        tabBarStyle: tw`bg-white border-t border-gray-200 h-16 pb-2`,
+        tabBarLabelStyle: tw`text-xs font-medium`,
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="dashboard"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="home" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="index"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Routine",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="list" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="exercise"
+        options={{
+          title: "Exercise",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="fitness" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="notes"
+        options={{
+          title: "Notes",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="journal" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="muslim-life"
+        options={{
+          title: "Muslim Life",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="moon" color={color} />
+          ),
         }}
       />
     </Tabs>

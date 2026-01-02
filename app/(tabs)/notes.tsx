@@ -1,10 +1,10 @@
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { useNavigation } from "expo-router";
-import RoutineScreen from "../../src/screens/RoutineScreen";
+import NotesScreen from "../../src/screens/NotesScreen";
 
-export default function Index() {
+export default function Notes() {
   const navigation = useNavigation<DrawerNavigationProp<any>>();
   const onMenuPress = () => navigation.openDrawer();
 
-  return <RoutineScreen onMenuPress={onMenuPress} />;
+  return <NotesScreen onMenuPress={onMenuPress} />;
 }
